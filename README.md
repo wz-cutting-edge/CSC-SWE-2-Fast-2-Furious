@@ -1,4 +1,4 @@
-# CSC-SWE-2-Fast-2-Furious
+# Digital Library Archive
 ## Contributors
 - Michelle Duong
 - Brooke Harris
