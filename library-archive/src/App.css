@@ -80,6 +80,9 @@ button {
   color: white;
   cursor: pointer;
 }
+span {
+  color: black;
+}
 
 button:hover {
   background-color: #0056b3;

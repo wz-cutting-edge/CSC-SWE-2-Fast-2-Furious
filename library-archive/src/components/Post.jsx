@@ -7,7 +7,7 @@ const Post = ({ post, onLike, onDislike }) => {
             <p>{post.content}</p>
             <div className="interaction">
                 <button onClick={() => onLike(post.id)}>Like</button>
-                <span>{post.likes} Likes</span>
+                <span>{post.likes} Likes </span>
                 <button onClick={() => onDislike(post.id)}>Dislike</button>
                 <span>{post.dislikes} Dislikes</span>
             </div>
