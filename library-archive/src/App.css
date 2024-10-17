@@ -44,7 +44,7 @@
   background-color: #f4f4f4;
 }
 
-h2,p{
+h2,h3,p{
   color: #333;
 }
 
@@ -127,3 +127,50 @@ button:hover {
   background-color: #0056b3;
 }
 /* ----------------------User profile ---------------------*/
+
+/* ----------------------Library ---------------------*/
+.library {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+}
+
+.library form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.library input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0;
+  color:#333;
+}
+/* ----------------------Library ---------------------*/
