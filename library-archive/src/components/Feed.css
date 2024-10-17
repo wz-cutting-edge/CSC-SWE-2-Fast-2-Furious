@@ -1,0 +1,16 @@
+/* src/components/Feed.css */
+.feed-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feed-container h2 {
+    margin-bottom: 20px;
+}
+
+.feed-container p {
+    font-style: italic;
+    color: #666;
+}
