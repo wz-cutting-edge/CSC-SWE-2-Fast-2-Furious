@@ -13,7 +13,7 @@ const App = () => {
                         <Link to="/" className="navbar-logo">Library Archive</Link>
                     </div>
                     <ul className="navbar-menu">
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/">User Feed</Link></li>
                         <li><Link to="/profile">Profile</Link></li>
                     </ul>
                 </nav>
