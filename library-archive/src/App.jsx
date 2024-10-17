@@ -10,7 +10,7 @@ const App = () => {
             <div className="app-container">
                 <nav className="navbar">
                     <div className="navbar-brand">
-                        <Link to="/" className="navbar-logo">UserFeedApp</Link>
+                        <Link to="/" className="navbar-logo">Library Archive</Link>
                     </div>
                     <ul className="navbar-menu">
                         <li><Link to="/">Home</Link></li>
@@ -24,7 +24,7 @@ const App = () => {
                     </Routes>
                 </main>
                 <footer className="footer">
-                    <p>&copy; 2024 UserFeedApp. All rights reserved.</p>
+                    <p>&copy; 2024 LibraryArchiveApp. All rights reserved.</p>
                 </footer>
             </div>
         </Router>

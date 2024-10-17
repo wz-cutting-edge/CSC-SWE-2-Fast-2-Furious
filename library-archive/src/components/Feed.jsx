@@ -1,21 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import api from '../services/api';
-import ContentItem from './ContentItem';
+
+// src/components/Feed.js
+import React, { useState } from 'react';
+import Post from './Post';
 
 const Feed = () => {
-    const [contents, setContents] = useState([]);
+    // Sample data for posts
+    const [posts, setPosts] = useState([
+        { id: 1, content: 'Post 1', likes: 0, dislikes: 0 },
+        { id: 2, content: 'Post 2', likes: 0, dislikes: 0 },
+        { id: 3, content: 'Post 3', likes: 0, dislikes: 0 },
+    ]);
 
-    useEffect(() => {
-        api.get('contents/')
-            .then(response => setContents(response.data))
-            .catch(error => console.error('Error fetching content:', error));
-    }, []);
+    const handleLike = (id) => {
+        setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+                post.id === id ? { ...post, likes: post.likes + 1 } : post
+            )
+        );
+    };
+
+    const handleDislike = (id) => {
+        setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+                post.id === id ? { ...post, dislikes: post.dislikes + 1 } : post
+            )
+        );
+    };
 
     return (
-        <div>
-            <h2>User Feed</h2>
-            {contents.map(content => (
-                <ContentItem key={content.id} content={content} />
+        <div className="feed">
+            {posts.map((post) => (
+                <Post
+                    key={post.id}
+                    post={post}
+                    onLike={handleLike}
+                    onDislike={handleDislike}
+                />
             ))}
         </div>
     );

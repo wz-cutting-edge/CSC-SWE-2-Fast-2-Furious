@@ -54,3 +54,31 @@ h2,p{
   text-align: center;
   padding: 10px 0;
 }
+.feed {
+  padding: 20px;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.interaction {
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
