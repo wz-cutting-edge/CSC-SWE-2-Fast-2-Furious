@@ -1,30 +1,46 @@
 @echo off
-echo Installing Node.js...
+SETLOCAL ENABLEDELAYEDEXPANSION
 
-REM Set the version of Node.js to install
-set NODE_VERSION=v18.17.0
+:: Define your backend and frontend directories
+SET BACKEND_DIR=archive_backend  :: Adjust this to your backend directory path
+SET FRONTEND_DIR=library-archive :: Adjust this to your frontend directory path
 
-REM Set the download URL for Node.js (change the version as needed)
-set NODE_URL=https://nodejs.org/dist/%NODE_VERSION%/node-%NODE_VERSION%-x64.msi
+:: Check if Node.js is installed
+where node >nul 2>nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo Node.js is not installed. Please install Node.js from https://nodejs.org/
+    exit /B 1
+) ELSE (
+    echo Node.js is already installed. Version: 
+    node -v
+)
 
-REM Set the download path
-set DOWNLOAD_PATH=%TEMP%\nodejs.msi
+:: Change to frontend directory and install dependencies
+echo Installing frontend project dependencies...
+cd %FRONTEND_DIR%
+npm install
 
-REM Download Node.js
-echo Downloading Node.js from %NODE_URL%...
-powershell -Command "Invoke-WebRequest -Uri %NODE_URL% -OutFile %DOWNLOAD_PATH%"
+:: Check if Vite is installed
+where vite >nul 2>nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo Vite is not installed. Installing Vite...
+    npm install vite --save-dev
+)
 
-REM Install Node.js
-echo Installing Node.js...
-start /wait msiexec.exe /i %DOWNLOAD_PATH% /quiet
+:: Start the frontend development server
+echo Starting the frontend development server...
+start cmd /c "npm run dev"
 
-REM Clean up
-del %DOWNLOAD_PATH%
+:: Change back to the original directory
+cd ..
 
-REM Check installation
-echo Checking Node.js version...
-node -v
-npm -v
+:: Change to backend directory and install dependencies (if applicable)
+echo Installing backend project dependencies...
+cd %BACKEND_DIR%
+pip install -r requirements.txt  :: Adjust based on your requirements
 
-echo Node.js installation complete.
-pause
+:: Start the Django server
+echo Starting the Django development server...
+start cmd /c "python manage.py runserver"
+
+ENDLOCAL
