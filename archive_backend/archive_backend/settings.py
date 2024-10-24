@@ -75,12 +75,15 @@ WSGI_APPLICATION = 'archive_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Archive',
-        'USER': 'user',
-        'PASSWORD': 'password',
+      'ENGINE': 'django.db.backends.mysql',
+      "OPTIONS": {
+        "read_default_file": "C/:ProgramData/MySQL/MySQL Server 9.0/my.ini",  
+      },
+        'NAME': 'project',
+        'USER': 'root',
+        'PASSWORD': '1013',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
